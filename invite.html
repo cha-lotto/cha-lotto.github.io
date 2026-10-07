@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>찰떡 복권 로또 모임 초대</title>
+<meta name="description" content="찰떡 복권 로또 모임 초대 코드를 확인하고 앱에서 모임에 들어가요.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="찰떡 복권">
+<meta property="og:title" content="로또 모임에 초대해요">
+<meta property="og:description" content="회비부터 당첨금 나누기까지 한곳에서 기록해요">
+<meta property="og:image" content="https://cha-lotto.github.io/img/invite-1.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="400">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17171C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#FFFFFF;--fg:#16181B;--body:#45484D;--sub:#6B6F76;--line:#F0F0EC;--card:#F7F7F5;--gold:#FFB800;--goldText:#8A5F00;--link:#16181B}
+@media (prefers-color-scheme: dark){:root{--bg:#17171C;--fg:#ECECEF;--body:#C9CAD0;--sub:#A5A7AE;--line:#3A3A42;--card:#2A2A31;--goldText:#F2C45E;--link:#ECECEF}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:17px;line-height:1.6;letter-spacing:-0.02em;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--link);text-decoration:underline;text-decoration-color:var(--sub);text-underline-offset:3px}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 64px}
+header.top{display:flex;align-items:center;gap:10px;height:64px}
+header.top a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-weight:700;font-size:18px}
+header.top img{width:32px;height:32px;border-radius:9px}
+h1{font-size:28px;font-weight:800;line-height:1.35;letter-spacing:-0.03em;margin:32px 0 12px}
+h2{font-size:20px;font-weight:700;line-height:1.4;letter-spacing:-0.03em;margin:48px 0 12px}
+p{margin:8px 0;color:var(--body)}
+.intro{font-size:17px;color:var(--sub);margin:0 0 8px}
+.date{font-size:15px;color:var(--sub);margin:0}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0 0}
+@media (min-width:560px){.tiles{grid-template-columns:1fr 1fr 1fr}}
+.tile{background:var(--card);border-radius:16px;padding:14px 16px}
+.tile .l{font-size:15px;color:var(--sub)}
+.tile .v{font-size:17px;font-weight:700;color:var(--fg);margin-top:2px}
+.kv{padding:12px 0;border-bottom:1px solid var(--line)}
+.kv:last-child{border-bottom:0}
+.kv .k{font-weight:700;color:var(--fg)}
+.kv .v{color:var(--body)}
+.kv .s{font-size:15px;color:var(--sub);margin-top:2px}
+.box{background:var(--card);border-radius:16px;padding:16px;margin:12px 0}
+.box b{display:block;margin-bottom:4px;color:var(--fg)}
+.box span{color:var(--body)}
+.label{font-size:15px;font-weight:700;color:var(--sub);margin:20px 0 4px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:10px 0;border-bottom:1px solid var(--line);color:var(--body);vertical-align:top}
+td.n{text-align:right;white-space:nowrap;font-weight:700;color:var(--fg);padding-left:12px}
+ol.toc{list-style:none;padding:0;margin:20px 0 0;background:var(--card);border-radius:16px;padding:8px 16px}
+ol.toc li a{display:flex;gap:8px;padding:8px 0;text-decoration:none;color:var(--fg)}
+ol.toc li a span{color:var(--sub);min-width:48px}
+.article p{margin:6px 0}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:15px;color:var(--sub)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:8px}
+footer a{color:var(--sub)}
+.hero{text-align:center;padding:40px 0 8px}
+.hero img{width:160px;height:160px}
+.hero h1{margin:16px 0 8px;font-size:32px}
+.hero p{font-size:18px;color:var(--sub);margin:0}
+.feat{margin:40px 0 0;display:flex;flex-direction:column;gap:8px}
+.feat .item{background:var(--card);border-radius:20px;padding:20px}
+.feat .item b{display:block;font-size:18px;color:var(--fg);margin-bottom:4px}
+.feat .item span{color:var(--body)}
+.note{margin:24px 0 0;font-size:15px;color:var(--sub);text-align:center}
+.links{display:flex;flex-direction:column;gap:8px;margin:32px 0 0}
+.links a{display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 20px;border-radius:16px;background:var(--card);text-decoration:none;color:var(--fg);font-weight:700}
+.links a::after{content:'';width:8px;height:8px;border-right:2px solid var(--sub);border-top:2px solid var(--sub);transform:rotate(45deg)}
+
+:root{--btn:#FFB800;--pic:#FEFAEE}
+@media (prefers-color-scheme: dark){:root{--btn:#F2B33D}}
+.inv{padding:8px 0 0}
+.icard{background:var(--card);border-radius:20px;overflow:hidden}
+.icard .pic{aspect-ratio:2/1;background:var(--pic)}
+.icard .pic img{display:block;width:100%;height:100%;object-fit:cover}
+.icard .in{padding:20px 20px 24px}
+.ifrom{margin:0 0 4px;font-size:15px;color:var(--sub)}
+.ititle{margin:0;font-size:24px;font-weight:800;line-height:1.38;letter-spacing:-0.03em;overflow-wrap:anywhere}
+.isub{margin:8px 0 0;font-size:15px;color:var(--body)}
+.icode{margin-top:20px;border-radius:16px;background:var(--bg);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.icode .l{font-size:15px;color:var(--sub)}
+.icode .v{font-size:30px;font-weight:800;line-height:1.3;letter-spacing:0.12em;color:var(--fg);font-variant-numeric:tabular-nums}
+.cta{display:flex;flex-direction:column;gap:4px;margin-top:24px}
+.btn{display:flex;align-items:center;justify-content:center;height:56px;border-radius:16px;background:var(--btn);color:#16181B;font-size:19px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.98)}
+.tbtn{height:48px;border:0;background:transparent;font:inherit;font-size:16px;font-weight:600;color:var(--sub);letter-spacing:-0.02em;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.only{padding:4px 0 8px;text-align:center}
+.only b{display:block;font-size:17px;color:var(--fg)}
+.only span{display:block;font-size:15px;color:var(--sub);margin-top:2px}
+[hidden]{display:none!important}
+footer.ifoot{margin-top:48px;text-align:center}
+footer.ifoot p{margin:0 0 6px;color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:calc(32px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:14px 20px 14px 16px;border-radius:100px;background:rgba(22,24,27,.92);color:#FFFFFF;font-size:17px;font-weight:600;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;z-index:10}
+.toast.on{visibility:visible;animation:toast 2.4s ease both}
+@keyframes toast{0%{transform:translate(-50%,16px);opacity:0}12%,85%{transform:translate(-50%,0);opacity:1}100%{transform:translate(-50%,0);opacity:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a href="./"><img src="img/icon-192.png" alt="">찰떡 복권</a></header>
+<main class="inv">
+<section class="icard" aria-labelledby="ititle">
+<div class="pic" id="pic"><img id="img" alt=""></div>
+<div class="in">
+<p class="ifrom" id="from" hidden></p>
+<h1 class="ititle" id="ititle">로또 모임에 초대해요</h1>
+<p class="isub" id="sub" hidden></p>
+<div class="icode" id="codebox"><span class="l">초대 코드</span><span class="v" id="code"></span></div>
+</div>
+</section>
+<div class="cta">
+<a class="btn" id="open" href="#" hidden>앱에서 모임 들어가기</a>
+<div class="only" id="only" hidden><b>안드로이드 휴대폰에서 열어 주세요</b><span>찰떡 복권은 지금 안드로이드 앱만 있어요</span></div>
+<button class="tbtn" id="copy" type="button">초대 코드 복사하기</button>
+</div>
+</main>
+<footer class="ifoot"><p>찰떡 복권은 로또와 연금복권 당첨 확인, 판매점, 로또 모임을 한곳에서 쓰는 앱이에요.</p><a href="./">찰떡 복권 홈</a></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFB800" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><span id="toastText"></span></div>
+<script>
+(function () {
+  var PLAY = 'https://play.google.com/store/apps/details?id=bite.chalotto';
+  var q = new URLSearchParams(location.search);
+  // 보이지 않는 글자와 방향 바꾸는 글자는 빼고, 앱과 같은 길이까지만 (넘으면 말줄임)
+  function clean(v, max) {
+    var s = String(v || '').replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\u2028-\u202E\u2060-\u206F\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
+    var a = Array.from(s);
+    return a.length > max ? a.slice(0, max).join('') + '\u2026' : s;
+  }
+  var code = String(q.get('c') || '').trim().toUpperCase();
+  var ok = /^[A-Z0-9]{6}$/.test(code);
+  var g = clean(q.get('g'), 20), n = clean(q.get('n'), 10);
+  var android = /Android/i.test(navigator.userAgent);
+  var $ = function (id) { return document.getElementById(id); };
+
+  if (ok) {
+    var k = 0;
+    for (var i = 0; i < 6; i++) k += code.charCodeAt(i);
+    $('img').src = 'img/invite-' + (k % 5 + 1) + '.jpg';
+    if (n) { $('from').textContent = n + '님이 초대했어요'; $('from').hidden = false; }
+    $('ititle').textContent = (g || '로또 모임') + '에 초대해요';
+    $('code').textContent = code;
+    $('code').setAttribute('aria-label', '초대 코드 ' + code.split('').join(' '));
+    document.title = (g || '로또 모임') + '에 초대해요';
+  } else {
+    $('pic').hidden = true;
+    $('codebox').hidden = true;
+    $('copy').hidden = true;
+    $('ititle').textContent = '초대 코드를 확인해 주세요';
+    $('sub').textContent = '초대한 사람에게 주소를 다시 받아 주세요';
+    $('sub').hidden = false;
+    $('open').textContent = '앱에서 코드 넣기';
+  }
+  if (android) {
+    // 앱이 있으면 코드 넣기 화면(코드가 있으면 바로 '초대받은 사람' 화면), 없으면 구글 플레이
+    $('open').href = 'intent://group-join' + (ok ? '?code=' + code : '') + '#Intent;scheme=chalotto;package=bite.chalotto;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+    $('open').hidden = false;
+  } else {
+    $('only').hidden = false;
+  }
+
+  var tt;
+  function toast(text, check) {
+    var t = $('toast');
+    $('toastText').textContent = text;
+    t.firstChild.style.display = check ? '' : 'none';
+    t.classList.remove('on');
+    void t.offsetWidth;
+    t.classList.add('on');
+    clearTimeout(tt);
+    tt = setTimeout(function () { t.classList.remove('on'); }, 2400);
+  }
+  function copyOld() {
+    var ta = document.createElement('textarea');
+    ta.value = code;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var done = false;
+    try { done = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return done;
+  }
+  $('copy').addEventListener('click', function () {
+    var after = function (done) { toast(done ? '초대 코드를 복사했어요' : '코드를 길게 눌러 복사해 주세요', done); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(function () { after(true); }, function () { after(copyOld()); });
+    else after(copyOld());
+  });
+})();
+</script>
+</body>
+</html>
