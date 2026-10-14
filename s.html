@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로또 판매점 위치</title>
+<meta name="description" content="찰떡 복권에서 보낸 판매점이에요. 누르면 네이버 지도로 열어요">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="찰떡 복권">
+<meta property="og:title" content="로또 판매점 위치">
+<meta property="og:description" content="찰떡 복권에서 보낸 판매점이에요. 누르면 네이버 지도로 열어요">
+<meta property="og:image" content="https://cha-lotto.github.io/img/store-share.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="400">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17171C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icon-192.png">
+<script>
+/* 판매점 짧은 주소 (2026-10-14 짧은 링크, 댓글 bf6e6f2d)
+   앱이 공유하는 https://cha-lotto.github.io/s?<판매점 번호> 를 열면, 공개 자료에서 판매점 이름과 주소를 찾아
+   앱과 같은 네이버 지도 검색 주소(앱 src/data/map-url.ts naverMapUrl)로 넘겨요.
+   찾는 방법은 앱 src/data/live.ts 와 같아요: manifest.json 의 stores_v, stores/i/<stores_v>/<번호 끝 두 자리>.json 의 rows.
+   보내는 것은 판매점 번호 끝 두 자리(받을 파일 이름)뿐이에요. 위치, 쿠키, 이 페이지 주소(referrer)는 보내지 않아요.
+   글꼴 파일을 받기 전에 바로 찾기 시작하려고 head 맨 앞에서 돌려요 */
+(function () {
+  'use strict';
+  var DATA_URL = 'https://htlrctimipuwuzlwslci.supabase.co/storage/v1/object/public/data/v1';
+  var COLS = ['id', 'name', 'address', 'lat', 'lng', 'sells'];
+  var WAIT_MS = 8000;
+
+  // '?14100318' 과 '?id=14100318' 둘 다. 숫자가 아니면 null, 아무것도 없으면 ''
+  function readId() {
+    var raw = location.search.replace(/^\?/, '');
+    var id = null;
+    try { id = new URLSearchParams(raw).get('id'); } catch (e) {}
+    if (id == null) {
+      var first = raw.split('&')[0].replace(/=$/, '');
+      if (first.indexOf('=') < 0) { try { id = decodeURIComponent(first); } catch (e) { id = first; } }
+    }
+    id = String(id == null ? '' : id).trim();
+    if (!id) return '';
+    return /^\d{1,16}$/.test(id) ? id : null;
+  }
+  // 앱 live.ts idPart 와 같아요 (수집 로봇 id_part)
+  function idPart(id) { return /\d\d$/.test(id) ? id.slice(-2) : 'xx'; }
+  // 앱 map-url.ts naverMapUrl 과 같은 인코딩
+  function naverMapUrl(name, address) {
+    var q = encodeURIComponent((name + ' ' + address).trim()).replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return 'https://map.naver.com/p/search/' + q;
+  }
+  // 서버에 없는 파일(404, Supabase 는 400)이면 null, 그 밖의 실패는 오류
+  function getJSON(path, signal) {
+    return fetch(DATA_URL + '/' + path, { signal: signal, credentials: 'omit', referrerPolicy: 'no-referrer', headers: { Accept: 'application/json' } }).then(function (r) {
+      if (r.status === 404 || r.status === 400) return null;
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+  function lookup(id) {
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var signal = ctrl ? ctrl.signal : undefined;
+    var timer;
+    var late = new Promise(function (_, reject) {
+      timer = setTimeout(function () { if (ctrl) ctrl.abort(); reject(new Error('timeout')); }, WAIT_MS);
+    });
+    var job = getJSON('manifest.json', signal).then(function (m) {
+      // 예전 서버(전국 파일 하나)는 너무 커서 받지 않고 '찾지 못했어요'
+      if (!m || !m.stores_v) return null;
+      return getJSON('stores/i/' + m.stores_v + '/' + idPart(id) + '.json', signal);
+    }).then(function (file) {
+      var rows = file && file.rows;
+      if (!rows || !rows.length) return null;
+      var cols = file.columns || COLS;
+      var at = function (k) { var i = cols.indexOf(k); return i < 0 ? COLS.indexOf(k) : i; };
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        if (r && String(r[at('id')]) === id) {
+          var name = String(r[at('name')] || '').trim(), address = String(r[at('address')] || '').trim();
+          return name || address ? { name: name, address: address } : null;
+        }
+      }
+      return null;
+    });
+    return Promise.race([job, late]).then(function (v) { clearTimeout(timer); return v; }, function (e) { clearTimeout(timer); throw e; });
+  }
+  function ready(fn) {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
+  }
+  function $(id) { return document.getElementById(id); }
+
+  var id = readId();
+  // 번호가 없으면 홈페이지로
+  if (id === '') { location.replace('/'); return; }
+
+  function miss() {
+    ready(function () {
+      $('card').hidden = true;
+      $('go').hidden = true;
+      $('miss').hidden = false;
+    });
+  }
+  if (id === null) { miss(); return; }
+
+  lookup(id).then(function (s) {
+    if (!s) { miss(); return; }
+    var url = naverMapUrl(s.name, s.address);
+    ready(function () {
+      document.title = (s.name || '로또 판매점') + ' 위치';
+      $('name').textContent = s.name;
+      $('addr').textContent = s.address;
+      $('addr').hidden = !s.address;
+      $('card').removeAttribute('aria-busy');
+      $('goText').textContent = '네이버 지도로 넘어가요';
+      $('open').href = url;
+      $('open').hidden = false;
+      // 뒤로 가기에 이 페이지가 남지 않게 replace
+      location.replace(url);
+    });
+  }, miss);
+})();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#FFFFFF;--fg:#16181B;--body:#45484D;--sub:#6B6F76;--line:#F0F0EC;--card:#F7F7F5;--btn:#FFB800;--pin:#FFB800;--pinIn:#FFFFFF;--sk:#E9E9E5}
+@media (prefers-color-scheme: dark){:root{--bg:#17171C;--fg:#ECECEF;--body:#C9CAD0;--sub:#A5A7AE;--line:#3A3A42;--card:#2A2A31;--btn:#F2B33D;--pin:#F2B33D;--pinIn:#2A2A31;--sk:#3A3A42}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:17px;line-height:1.6;letter-spacing:-0.02em;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 64px}
+header.top{display:flex;align-items:center;gap:10px;height:64px}
+header.top a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-weight:700;font-size:18px}
+header.top img{width:32px;height:32px;border-radius:9px}
+main{padding:8px 0 0}
+.scard{background:var(--card);border-radius:20px;padding:20px 20px 24px}
+.pin{display:block;width:40px;height:40px;margin-bottom:12px}
+.pin .pa{fill:var(--pin)}
+.pin .pb{fill:var(--pinIn)}
+.sname{margin:0;font-size:24px;font-weight:800;line-height:1.38;letter-spacing:-0.03em;overflow-wrap:anywhere}
+.saddr{margin:6px 0 0;font-size:17px;color:var(--body);overflow-wrap:anywhere}
+.sk{display:block;height:20px;border-radius:8px;background:var(--sk)}
+.sname .sk{width:60%;height:26px;margin:3px 0}
+.saddr .sk{width:88%;margin:3px 0}
+.go{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0 0;font-size:17px;color:var(--sub)}
+.spin{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--sub);animation:spin .8s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin{animation:none}}
+.cta{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.btn{display:flex;align-items:center;justify-content:center;height:56px;border-radius:16px;background:var(--btn);color:#16181B;font-size:19px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.btn2{display:flex;align-items:center;justify-content:center;height:56px;border-radius:16px;background:var(--card);color:var(--fg);font-size:17px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.btn:active,.btn2:active{transform:scale(.98)}
+.miss{padding:24px 0 0;text-align:center}
+.miss h1{margin:0;font-size:24px;font-weight:800;line-height:1.38;letter-spacing:-0.03em}
+.miss .cta{margin-top:24px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a href="/"><img src="img/icon-192.png" alt="">찰떡 복권</a></header>
+<main aria-live="polite">
+<section class="scard" id="card" aria-busy="true">
+<svg class="pin" viewBox="0 0 40 40" aria-hidden="true"><path class="pa" d="M20 4c-6.6 0-12 5.2-12 11.7C8 24.5 20 36 20 36s12-11.5 12-20.3C32 9.2 26.6 4 20 4z"></path><circle cx="20" cy="15.6" r="4.6" class="pb"></circle></svg>
+<h1 class="sname" id="name"><span class="sk"></span></h1>
+<p class="saddr" id="addr"><span class="sk"></span></p>
+</section>
+<div id="go">
+<p class="go"><span class="spin" aria-hidden="true"></span><span id="goText">판매점을 찾고 있어요</span></p>
+<div class="cta"><a class="btn" id="open" href="#" rel="noreferrer" hidden>네이버 지도에서 보기</a></div>
+</div>
+<section class="miss" id="miss" hidden>
+<h1>판매점을 찾지 못했어요</h1>
+<div class="cta"><a class="btn2" href="/">찰떡 복권 홈페이지</a></div>
+</section>
+</main>
+</div>
+</body>
+</html>
