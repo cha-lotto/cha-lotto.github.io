@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>찰떡 복권 공지사항</title>
+<meta name="description" content="찰떡 복권에서 보낸 공지예요. 누르면 내용을 볼 수 있어요">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="찰떡 복권">
+<meta property="og:title" content="찰떡 복권 공지사항">
+<meta property="og:description" content="찰떡 복권에서 보낸 공지예요. 누르면 내용을 볼 수 있어요">
+<meta property="og:image" content="https://cha-lotto.github.io/img/notice-share.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="400">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17171C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#FFFFFF;--fg:#16181B;--body:#45484D;--sub:#6B6F76;--line:#F0F0EC;--card:#F7F7F5;--gold:#FFB800;--goldText:#8A5F00;--link:#16181B}
+@media (prefers-color-scheme: dark){:root{--bg:#17171C;--fg:#ECECEF;--body:#C9CAD0;--sub:#A5A7AE;--line:#3A3A42;--card:#2A2A31;--goldText:#F2C45E;--link:#ECECEF}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:17px;line-height:1.6;letter-spacing:-0.02em;word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--link);text-decoration:underline;text-decoration-color:var(--sub);text-underline-offset:3px}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 64px}
+header.top{display:flex;align-items:center;gap:10px;height:64px}
+header.top a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-weight:700;font-size:18px}
+header.top img{width:32px;height:32px;border-radius:9px}
+h1{font-size:28px;font-weight:800;line-height:1.35;letter-spacing:-0.03em;margin:32px 0 12px}
+h2{font-size:20px;font-weight:700;line-height:1.4;letter-spacing:-0.03em;margin:48px 0 12px}
+p{margin:8px 0;color:var(--body)}
+.intro{font-size:17px;color:var(--sub);margin:0 0 8px}
+.date{font-size:15px;color:var(--sub);margin:0}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0 0}
+@media (min-width:560px){.tiles{grid-template-columns:1fr 1fr 1fr}}
+.tile{background:var(--card);border-radius:16px;padding:14px 16px}
+.tile .l{font-size:15px;color:var(--sub)}
+.tile .v{font-size:17px;font-weight:700;color:var(--fg);margin-top:2px}
+.kv{padding:12px 0;border-bottom:1px solid var(--line)}
+.kv:last-child{border-bottom:0}
+.kv .k{font-weight:700;color:var(--fg)}
+.kv .v{color:var(--body)}
+.kv .s{font-size:15px;color:var(--sub);margin-top:2px}
+.box{background:var(--card);border-radius:16px;padding:16px;margin:12px 0}
+.box b{display:block;margin-bottom:4px;color:var(--fg)}
+.box span{color:var(--body)}
+.label{font-size:15px;font-weight:700;color:var(--sub);margin:20px 0 4px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:10px 0;border-bottom:1px solid var(--line);color:var(--body);vertical-align:top}
+td.n{text-align:right;white-space:nowrap;font-weight:700;color:var(--fg);padding-left:12px}
+ol.toc{list-style:none;padding:0;margin:20px 0 0;background:var(--card);border-radius:16px;padding:8px 16px}
+ol.toc li a{display:flex;gap:8px;padding:8px 0;text-decoration:none;color:var(--fg)}
+ol.toc li a span{color:var(--sub);min-width:48px}
+.article p{margin:6px 0}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:15px;color:var(--sub)}
+footer nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:8px}
+footer a{color:var(--sub)}
+.hero{text-align:center;padding:40px 0 8px}
+.hero img{width:160px;height:160px}
+.hero h1{margin:16px 0 8px;font-size:32px}
+.hero p{font-size:18px;color:var(--sub);margin:0}
+.feat{margin:40px 0 0;display:flex;flex-direction:column;gap:8px}
+.feat .item{background:var(--card);border-radius:20px;padding:20px}
+.feat .item b{display:block;font-size:18px;color:var(--fg);margin-bottom:4px}
+.feat .item span{color:var(--body)}
+.note{margin:24px 0 0;font-size:15px;color:var(--sub);text-align:center}
+.links{display:flex;flex-direction:column;gap:8px;margin:32px 0 0}
+.links a{display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 20px;border-radius:16px;background:var(--card);text-decoration:none;color:var(--fg);font-weight:700}
+.links a::after{content:'';width:8px;height:8px;border-right:2px solid var(--sub);border-top:2px solid var(--sub);transform:rotate(45deg)}
+
+:root{--btn:#FFB800;--hl:#FFE58A;--hu:#FFE58A}
+@media (prefers-color-scheme: dark){:root{--btn:#F2B33D;--hl:#5C4A12;--hu:#5C4A12}}
+.cta{position:sticky;bottom:0;padding:12px 0 calc(16px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,rgba(0,0,0,0),var(--bg) 24px);display:flex;flex-direction:column;gap:4px}
+.btn{display:flex;align-items:center;justify-content:center;height:56px;border-radius:16px;background:var(--btn);color:#16181B;font-size:19px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.98)}
+.only{padding:4px 0 8px;text-align:center}
+.only b{display:block;font-size:17px;color:var(--fg)}
+.only span{display:block;font-size:15px;color:var(--sub);margin-top:2px}
+[hidden]{display:none!important}
+
+.nt{margin:24px 0 0;font-size:22px;font-weight:700;line-height:1.35;letter-spacing:-0.03em}
+.nd{margin:8px 0 0;font-size:15px;color:var(--sub);font-variant-numeric:tabular-nums}
+.nline{height:1px;background:var(--line);margin:24px 0 20px}
+.nb{font-size:17px;line-height:1.6;color:var(--fg)}
+.nb p{margin:0;color:var(--fg)}
+.nb .gap{height:1.6em}
+.nb h2{font-size:19px;font-weight:700;margin:6px 0 0;line-height:1.5}
+.nb ul,.nb ol{margin:0;padding-left:1.3em}
+.nb .sign{margin-top:24px;color:var(--body)}
+.nb hr{border:0;height:1px;background:var(--line);margin:12px 0}
+.nb .call{display:flex;gap:10px;padding:16px;border-radius:12px;background:var(--card);margin:8px 0 16px}
+.nb .call .e{flex-shrink:0}
+.nb .tw{overflow-x:auto;margin:12px 0 20px}
+.nb table{border-collapse:collapse;font-size:15px;min-width:100%}
+.nb td,.nb th{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;color:var(--fg)}
+.nb th{background:var(--card);font-weight:700}
+.nb details{margin:4px 0}
+.nb summary{cursor:pointer;font-weight:600}
+.nb .tb{padding:4px 0 0 1.3em;color:var(--body)}
+.nb .lbtn{display:flex;align-items:center;justify-content:center;height:52px;border-radius:14px;background:var(--card);color:var(--fg);font-weight:700;text-decoration:none;margin:12px 0 20px}
+.nb mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
+.nb .hu{background:linear-gradient(to bottom,transparent 55%,var(--hu) 55%,var(--hu) 92%,transparent 92%)}
+.pics{display:flex;gap:8px;margin:8px 0 16px}
+.pics figure{margin:0;flex:1;min-width:0}
+.pics.col{flex-direction:column}
+.pics img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.pics figcaption{font-size:14px;color:var(--sub);margin-top:6px;text-align:center}
+.msg{padding:80px 0 40px;text-align:center}
+.msg b{display:block;font-size:20px;color:var(--fg)}
+.msg span{display:block;margin-top:6px;color:var(--sub)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a href="./"><img src="img/icon-192.png" alt="">찰떡 복권</a></header>
+<main>
+<div class="msg" id="wait"><span>공지를 불러오고 있어요</span></div>
+<div class="msg" id="none" hidden><b>공지를 찾을 수 없어요</b><span>지워졌거나 주소가 맞지 않아요</span></div>
+<article id="art" hidden>
+<h1 class="nt" id="title"></h1>
+<p class="nd" id="date"></p>
+<div class="nline"></div>
+<div class="nb" id="body"></div>
+</article>
+</main>
+<div class="cta" id="cta" hidden>
+<a class="btn" id="open" href="#">앱에서 보기</a>
+</div>
+<div class="only" id="only" hidden><b>안드로이드 휴대폰에서 열어 주세요</b><span>찰떡 복권은 지금 안드로이드 앱만 있어요</span></div>
+</div>
+<script>
+/* 공지 공유 주소 (2026-10-25 운영자 '공지사항 글 링크 공유', 앱 src/lib/link-share.ts noticeLink)
+   https://cha-lotto.github.io/n?<공지 번호> 를 열면 올린 공지(누구나 읽을 수 있는 공지만)를 받아서 보여줘요.
+   안드로이드는 '앱에서 보기'로 앱의 그 공지를 열고, 앱이 없으면 구글 플레이로 가요.
+   보내는 것은 공지 번호뿐이에요. 쿠키, 이 페이지 주소(referrer)는 보내지 않아요 */
+(function () {
+  'use strict';
+  var API = 'https://htlrctimipuwuzlwslci.supabase.co';
+  var KEY = 'sb_publishable_pYqwHL67cpgTw9Wr8JJjhA_dYC-Ipg2';
+  var PLAY = 'https://play.google.com/store/apps/details?id=bite.chalotto';
+  var $ = function (id) { return document.getElementById(id); };
+  var raw = location.search.replace(/^\?/, '');
+  var id = '';
+  try { id = new URLSearchParams(raw).get('id') || ''; } catch (e) {}
+  if (!id) { try { id = decodeURIComponent(raw.split('&')[0].replace(/=$/, '')); } catch (e) { id = ''; } }
+  id = id.trim().toLowerCase();
+  var ok = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id);
+  var android = /Android/i.test(navigator.userAgent);
+
+  // 앱에서 보기 (앱 주소 chalotto://notice?open=<번호>)
+  if (android) {
+    $('open').href = 'intent://notice' + (ok ? '?open=' + id : '') + '#Intent;scheme=chalotto;package=bite.chalotto;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+    $('cta').hidden = false;
+  } else {
+    $('only').hidden = false;
+  }
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  var COLOR = { r: '#D44C47', o: '#D9730D', g: '#448361', b: '#337EA9', p: '#9065B0' };
+  // 글 꾸미기 표시 (앱 src/data/notice-inline.ts): **굵게** ==형광펜== __밑줄 형광펜__ {r:색 글자}. 짝이 안 맞으면 글자 그대로
+  function inline(s) {
+    var h = esc(s);
+    for (var i = 0; i < 4; i++) {
+      h = h.replace(/\*\*([^*]+?)\*\*/g, '<b>$1</b>')
+        .replace(/==([^=]+?)==/g, '<mark>$1</mark>')
+        .replace(/__([^_]+?)__/g, '<span class="hu">$1</span>')
+        .replace(/\{([rogbp]):([^{}]*?)\}/g, function (_m, k, t) { return '<span style="color:' + COLOR[k] + '">' + t + '</span>'; });
+    }
+    return h.replace(/\n/g, '<br>');
+  }
+  function two(n) { return n < 10 ? '0' + n : String(n); }
+  function photoUrl(p) { return API + '/storage/v1/object/public/notice/' + String(p.path || '').split('/').map(encodeURIComponent).join('/'); }
+  function pics(list) {
+    if (!list.length) return '';
+    var tall = list.length === 2 && list.every(function (p) { return !(p.w && p.h) || p.h >= p.w; });
+    return '<div class="pics' + (tall ? '' : ' col') + '">' + list.map(function (p) {
+      return '<figure><img src="' + esc(photoUrl(p)) + '" alt="' + esc(p.cap || '') + '" loading="lazy"' + (p.w && p.h ? ' width="' + p.w + '" height="' + p.h + '"' : '') + '>' + (p.cap ? '<figcaption>' + esc(p.cap) + '</figcaption>' : '') + '</figure>';
+    }).join('') + '</div>';
+  }
+  function render(n) {
+    var photos = Array.isArray(n.photos) ? n.photos.filter(function (p) { return p && typeof p.path === 'string'; }) : [];
+    var blocks = Array.isArray(n.body) ? n.body : [];
+    var rows = {};
+    blocks.forEach(function (b) { if (b && b.k === 'pic') rows[String(b.text)] = true; });
+    // 줄 칸이 없는 사진은 맨 위 (앱과 같아요)
+    var out = pics(photos.filter(function (p) { return !p.row || !rows[String(p.row)]; }));
+    var list = null;
+    function close() { if (list) { out += '</' + list + '>'; list = null; } }
+    blocks.forEach(function (b) {
+      if (!b || typeof b.k !== 'string') return;
+      var want = b.k === 'li' ? 'ul' : b.k === 'ol' ? 'ol' : null;
+      if (list !== want) close();
+      if (want && !list) { out += '<' + want + '>'; list = want; }
+      var t = typeof b.text === 'string' ? b.text : '';
+      if (b.k === 'p') out += '<p>' + inline(t) + '</p>';
+      else if (b.k === 'gap') out += '<div class="gap"></div>';
+      else if (b.k === 'h') out += '<h2>' + inline(t) + '</h2>';
+      else if (b.k === 'li' || b.k === 'ol') out += '<li>' + inline(t) + '</li>';
+      else if (b.k === 'sign') out += '<p class="sign">' + inline(t) + '</p>';
+      else if (b.k === 'hr') out += '<hr>';
+      else if (b.k === 'call') out += '<div class="call">' + (b.e ? '<span class="e">' + esc(b.e) + '</span>' : '') + '<div>' + inline(t) + '</div></div>';
+      else if (b.k === 'tog') out += '<details><summary>' + inline(t) + '</summary><div class="tb">' + inline(b.body || '') + '</div></details>';
+      else if (b.k === 'pic') out += pics(photos.filter(function (p) { return String(p.row) === String(t); }));
+      else if (b.k === 'tbl' && Array.isArray(b.rows)) {
+        out += '<div class="tw"><table>' + b.rows.map(function (r, ri) {
+          return '<tr>' + (Array.isArray(r) ? r : []).map(function (c, ci) { var th = (b.hr && ri === 0) || (b.hc && ci === 0); return '<' + (th ? 'th' : 'td') + '>' + inline(c) + '</' + (th ? 'th' : 'td') + '>'; }).join('') + '</tr>';
+        }).join('') + '</table></div>';
+      } else if (b.k === 'btn' && /^https:\/\//.test(b.url || '')) out += '<a class="lbtn" href="' + esc(b.url) + '" target="_blank" rel="noopener noreferrer">' + esc(t) + '</a>';
+      // 앱 화면으로 가는 바로가기 버튼은 홈페이지에서 열 수 없어서 빼요 (아래 '앱에서 보기')
+    });
+    close();
+    $('title').textContent = n.title || '';
+    document.title = (n.title || '공지사항') + ' | 찰떡 복권';
+    var d = new Date(n.published_at);
+    $('date').textContent = isNaN(d) ? '' : d.getFullYear() + '. ' + two(d.getMonth() + 1) + '. ' + two(d.getDate());
+    $('body').innerHTML = out;
+    $('wait').hidden = true;
+    $('art').hidden = false;
+  }
+  function none() { $('wait').hidden = true; $('none').hidden = false; }
+  if (!ok) return none();
+  var url = API + '/rest/v1/notices?select=title,body,photos,published_at&status=eq.published&id=eq.' + id + '&limit=1';
+  var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+  var t = setTimeout(function () { if (ctl) ctl.abort(); }, 10000);
+  fetch(url, { headers: { apikey: KEY, Accept: 'application/json' }, credentials: 'omit', referrerPolicy: 'no-referrer', signal: ctl ? ctl.signal : undefined })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (rows) { clearTimeout(t); if (rows && rows[0]) render(rows[0]); else none(); })
+    .catch(function () { clearTimeout(t); none(); });
+})();
+</script>
+</body>
+</html>
