@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "bite.chalotto",
+      "sha256_cert_fingerprints": ["CF:D4:C7:6D:4E:1F:73:0A:90:C7:13:A9:38:9E:9F:28:AC:E6:5B:AA:8B:CD:B1:B3:F6:53:EC:07:AC:B4:3F:92"]
+    }
+  }
+]
