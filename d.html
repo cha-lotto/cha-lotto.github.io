@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>찰떡 복권 꿈해몽 행운 번호</title>
+<meta name="description" content="간밤 꿈을 고르면 길몽 부적과 행운 번호 6개, 꿈 풀이가 나와요">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="찰떡 복권">
+<meta property="og:title" content="찰떡 복권 꿈해몽 행운 번호">
+<meta property="og:description" content="간밤 꿈을 고르면 길몽 부적과 행운 번호 6개, 꿈 풀이가 나와요">
+<meta property="og:image" content="https://cha-lotto.github.io/img/dream-share.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="400">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17171C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icon-192.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#FFFFFF;--fg:#16181B;--sub:#6B6F76;--card:#F2F3F0;--gold:#FFB800}
+@media (prefers-color-scheme: dark){:root{--bg:#17171C;--fg:#ECECEF;--sub:#A5A7AE;--card:#2A2A31}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;letter-spacing:-0.02em;word-break:keep-all}
+main{width:100%;max-width:420px;padding:40px 24px;text-align:center}
+img.icon{width:88px;height:88px;border-radius:22px}
+h1{margin:20px 0 8px;font-size:22px;line-height:1.35}
+p{margin:0;font-size:16px;line-height:1.6;color:var(--sub)}
+a.btn{display:flex;align-items:center;justify-content:center;height:56px;margin-top:12px;border-radius:16px;font-size:17px;font-weight:700;text-decoration:none;color:#16181B;background:var(--gold)}
+a.btn.sub{background:var(--card);color:var(--fg)}
+.btns{margin-top:28px}
+</style>
+</head>
+<body>
+<!-- 찰떡 복권 꿈해몽 링크 (https://cha-lotto.github.io/d, 2026-11-15). 꿈 부적 카카오톡 공유와 공유 창의 주소예요 (src/lib/kakao-share.native.ts shareDreamKakao, src/app/dream.tsx)
+     운영자 '링크통에 들어가면 바로 참여할 수 있도록, 다운로드 안 돼 있는 사람은 다운로드': 오픈 기념 이벤트 링크(e.html)와 같은 방식이에요.
+     - 안드로이드는 이 페이지가 열리자마자 앱의 꿈해몽 화면을 열고(intent chalotto://dream), 앱이 없으면 구글 플레이 설치 화면으로 가요
+     - 아이폰, PC: 안드로이드 앱에서 할 수 있다는 안내와 설치 단추만 -->
+<main>
+  <img class="icon" src="img/icon-192.png" alt="찰떡 복권">
+  <h1>간밤 꿈으로 길몽 부적 받기</h1>
+  <p id="msg">찰떡 복권 앱에서 열고 있어요</p>
+  <div class="btns">
+    <a class="btn" id="open" href="#">앱에서 열기</a>
+    <a class="btn sub" id="get" href="https://play.google.com/store/apps/details?id=bite.chalotto">앱 설치하기</a>
+  </div>
+</main>
+<script>
+(function () {
+  var PLAY = 'https://play.google.com/store/apps/details?id=bite.chalotto';
+  var android = /Android/i.test(navigator.userAgent);
+  var path = 'dream';
+  var intent = 'intent://' + path + '#Intent;scheme=chalotto;package=bite.chalotto;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+  var open = document.getElementById('open');
+  if (android) {
+    open.href = intent;
+    // 열자마자 앱으로 (앱이 없으면 구글 플레이로 가요)
+    location.href = intent;
+  } else {
+    open.style.display = 'none';
+    document.getElementById('msg').textContent = '안드로이드 휴대폰의 찰떡 복권 앱에서 볼 수 있어요';
+  }
+})();
+</script>
+</body>
+</html>
